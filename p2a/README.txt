@@ -1,0 +1,4 @@
+My shell had three basic parts. First I read the raw input from either the user or the file in batch mode. Then I parsed the input into commands. Finally I executed the command.
+For parsing, I began by checking if the input contains "&". If it does, then I loop over each command, and for each command check for redirection by looking for ">". If it does, I seperate 
+the command into 'command' and 'filename' by parsing by whitespace, and then call execute_redirection(), which changes the file descriptor to the file specified, and then does normal 
+forking and execv(). If the original command has no redirection, then i simply parse by whitespace and execute the command.
